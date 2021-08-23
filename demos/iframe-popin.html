@@ -18,11 +18,17 @@
 body {
     padding: 0px;
     margin: 0px;
+    text-align: center;
 }
 
 .merry-goblin-iframe-popin-link {
+	display: inline-block;
+	padding: 6px 12px;
 	cursor: pointer;
-	text-decoration: underline;
+	border: 1px solid #0d6efd;
+	border-radius: 3px;
+	background-color: #0d6efd;
+	color: #fff;
 }
 
 .merry-goblin-iframe-popin-wrapper {
@@ -94,8 +100,14 @@ body {
 	border: 0px solid transparent;
 }
 
-.link {
+.my-custom-link {
+	display: inline-block;
+	padding: 6px 12px;
 	cursor: pointer;
+	border: 1px solid #0d6efd;
+	border-radius: 3px;
+	background-color: #0d6efd;
+	color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -117,12 +129,18 @@ body {
 </head>
 <body>
 
+	<h1>Demo</h1>
+
+	<h3>A link automatically replaced by a trigger :</h3>
+
 	<p>
 		<a href="content.html" class="merry-goblin-iframe-popin-link">My <strong>link</strong><br>with <sup>HTML</sup></a>
 	</p>
 
+	<h3>A trigger manually put on a HTML element :</h3>
+
 	<p>
-		<span data-href="content2.html" id="my-button" class="link">A popin called manually</span>
+		<span data-href="content2.html" id="my-button" class="my-custom-link">A popin called manually</span>
 	</p>
 
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>

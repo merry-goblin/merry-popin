@@ -136,6 +136,12 @@ merryGoblin.popin.ctrl = (function($, merryGoblin) {
 
 	var scope = {
 
+		/**
+		 * Replace default jquery selectors by your own
+		 * 
+		 * @param  object  $settings
+		 * @return null
+		 */
 		configure: function($settings) {
 
 			if ($settings['iframePopinSelector'] != null) {
@@ -151,7 +157,7 @@ merryGoblin.popin.ctrl = (function($, merryGoblin) {
 
 		/**
 		 * Find any html element which matches with selectors
-		 * Those elements become triggers for a popin
+		 * Those elements will become triggers for a popin
 		 * 
 		 * @return null
 		 */
@@ -162,6 +168,12 @@ merryGoblin.popin.ctrl = (function($, merryGoblin) {
 			activateIframeTrigger();
 		},
 
+		/**
+		 * Open the relative popin according to data-trigger-id attribute
+		 * 
+		 * @param  string triggerId
+		 * @return null
+		 */
 		openIframe: function(triggerId) {
 
 			let $trigger = $('#'+triggerId);
@@ -171,6 +183,12 @@ merryGoblin.popin.ctrl = (function($, merryGoblin) {
 			}
 		},
 
+		/**
+		 * Close a popin
+		 * 
+		 * @param  string triggerId
+		 * @return null
+		 */
 		closeIframe: function(popinId) {
 
 			let $popin = $('#'+popinId);

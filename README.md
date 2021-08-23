@@ -5,12 +5,14 @@ Merry Popin
 
 ### Purpose
 
-This plugin will replace selected links in triggers which will open iframes in responsive popins.
+This plugin will replace selected links by triggers which will open iframes in responsive popins.
 
 ### Description
 
 - JQuery plugin
-- Links can be replaced at any time
+- handle iframe popins
+- Can replace some links on a page
+- Can manually open & close a popin 
 
 ### Easy to install
 
@@ -22,7 +24,7 @@ or
 
 ### Sample
 
-You will find a sample in the samples directory.
+You will find a sample in "demos" directory.
 Just open iframe-popin.html in your browser.
 
 --------------------------

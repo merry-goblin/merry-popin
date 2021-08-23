@@ -98,11 +98,22 @@ merryGoblin.popin.ctrl = (function($, merryGoblin) {
 		$trigger.removeClass('inactive-trigger');
 	}
 
+	/**
+	 * Build popin HTML
+	 * Returns popin id
+	 * 
+	 * @param  string  triggerId
+	 * @return string
+	 */
 	function createIframePopin(triggerId) {
 
-		let id = getPopinUniqueId();
 		let $trigger = $('#'+triggerId);
+		//	Trigger doesn't exist or more thant one of this id exists
+		if ($trigger.length != 1) {
+			return null;
+		}
 		let href = $trigger.attr('data-href');
+		let id = getPopinUniqueId();
 
 		let cssStart = 'merry-goblin-iframe-popin';
 		let wrapper = '<div id="'+id+'" class="'+cssStart+'-wrapper" data-trigger-id="'+triggerId+'">';
@@ -126,6 +137,8 @@ merryGoblin.popin.ctrl = (function($, merryGoblin) {
 			let popinId = $popin.attr('id');
 			self.closeIframe(popinId);
 		});
+
+		return id;
 	}
 
 	function destroyIframePopin(popinId) {
@@ -172,15 +185,18 @@ merryGoblin.popin.ctrl = (function($, merryGoblin) {
 		 * Open the relative popin according to data-trigger-id attribute
 		 * 
 		 * @param  string triggerId
-		 * @return null
+		 * @return string
 		 */
 		openIframe: function(triggerId) {
 
+			let popinId = null;
 			let $trigger = $('#'+triggerId);
 			if (!isTriggerActive($trigger)) {
 				inactivateTrigger($trigger);
-				createIframePopin(triggerId);
+				popinId = createIframePopin(triggerId);
 			}
+
+			return popinId;
 		},
 
 		/**

@@ -94,6 +94,10 @@ body {
 	border: 0px solid transparent;
 }
 
+.link {
+	cursor: pointer;
+}
+
 @media (max-width: 767px) {
 
 	.merry-goblin-iframe-popin-content {
@@ -117,13 +121,35 @@ body {
 		<a href="content.html" class="merry-goblin-iframe-popin-link">My <strong>link</strong><br>with <sup>HTML</sup></a>
 	</p>
 
+	<p>
+		<span data-href="content2.html" id="my-button" class="link">A popin called manually</span>
+	</p>
+
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="./../src/merry-popin.js"></script>
 	<script type="text/javascript">
 
 		(function($, merryGoblin) {
 
+			//	Will replace links by popin triggers
+			//	This is an automatic way for handling popins
 			merryGoblin.popin.ctrl.init();
+
+			//	Manually handle an HTML element
+			//	When this element is clicked ...
+			$('#my-button').click(function() {
+
+				//	... open the related popin according to data-trigger-id attribute
+				var popinId = merryGoblin.popin.ctrl.openIframe('my-button');
+
+				//	After 5 seconds ...
+				setTimeout(function() {
+					//	... close this popin 
+					//	It is for this demo. You don't have to close it this way.
+					//	You can let your user close this popin himself
+					merryGoblin.popin.ctrl.closeIframe(popinId);
+				}, 5000);
+			});
 
 		})(jQuery, merryGoblin);
 

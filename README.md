@@ -16,7 +16,7 @@ This plugin will replace selected links by triggers which will open iframes in r
 
 ### Easy to install
 
-- git clone merry-goblin/merry-goblin
+- git clone https://github.com/merry-goblin/merry-popin
 
 or 
 
